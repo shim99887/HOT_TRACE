@@ -1,0 +1,43 @@
+header{
+    width: 100%;
+    height: 60px;
+    background: #000000;
+}
+img{
+    width: 30px;
+    height: auto;
+}
+.board{
+    width: 100%;
+    text-align: center;
+}
+#mapLondon {
+    height: 0px;
+}
+#mapEdinburgh {
+    height: 800px;
+}
+#mapRome {
+    height: 800px;
+}
+#mapBerlin {
+    height: 800px;
+}
+blockquote:before
+{
+    color:#33A8E5;
+    content:'“';
+    font-family: fantasy;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+blockquote p {
+    display: inline;
+}
+blockquote {
+    border-left: 10px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+}

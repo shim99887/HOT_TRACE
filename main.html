@@ -259,7 +259,8 @@ main p {
     <input id="panel-6-ctrl" class="panel-radios" type="radio" name="tab-radios">
     <input id="panel-7-ctrl" class="panel-radios" type="radio" name="tab-radios">
     <input id="panel-8-ctrl" class="panel-radios" type="radio" name="tab-radios">
-
+    <!-- 이건 무엇? -->
+    
     <!-- TABS LIST -->
     <ul id="tabs-list">
         <!-- MENU TOGGLE -->
@@ -282,16 +283,19 @@ main p {
         <div class="container">
             <section id="panel-1">
                 <main>
-                    <p> 잉글랜드 런던 </p>
-                    <p id="start">출발지: </p>
-                    <p id="end">도착지: </p>
-                    <form action="\Users\shim9\OneDrive\문서\GitHub\HOT_TRACE\route.html" method="get" onsubmit="return checkEmpty()">
-                        <input type="text" id="start_input" name="start" style="display: none" value="">
-                        <input type="text" id="destination_input" name="destination" style="display: none" value="">
-                        <button type="submit">길찾기</button>
-                    </form>
-                    <button id="map_hidden">> 핫 플레이스 알아보기 </button>
-                    <div id="mapLondon"></div>
+                    <blockquote>
+                    <p> 런던 은 잉글랜드와 영국의 수도이자 최대 도시이다. 인구는 2014년 기준 8,538,689명으로 영국은 물론 유럽 전체 대도시권 중 가장 큰 권역이다. 런던은 템스 강을 기반으로 2,000년 동안 발전해 왔으며 역사는 로마인들이 론디니움이라는 요새를 지은 때부터 시작되었다. - 위키백과 </p>
+                    </blockquote>    
+                    <h3> The Amount of TOTAL TWEETS : 813,499 </h3>
+                    
+                    
+                    <!-- <button id="map_hidden">> 핫 플레이스 알아보기 </button> -->
+                    
+                    <span id="map_hidden"; style="CURSOR: hand; color:#02B3B1">➤ 핫 플레이스 알아보기</span>
+
+                    <div id="mapLondon">
+                        
+                    </div>
                     <script>
                         function checkEmpty(){
                             alert($("#start_input").val());
@@ -313,21 +317,17 @@ main p {
                                 
                             }
                         });
-                        function setOrigin(e1) {
-                            alert(e1);
-                            if (e1 == "pow") {
-                                var change_text = "출발지: Palace of Westminster";
-                                $("#start").text(change_text);
-                                $("#start_input").val("Pow");
-                            }
+                        function setOrigin(e) {
+                            var change_text = "출발지: " + e;
+                            $("#start").text(change_text);
+                            $("#start_input").val("Pow");
                         };
 
                         function setDestination(e) {
-                            if(e == "pow"){
-                                var change_text = "도착지: Palace of Westminster";
-                                $("#end").text(change_text);
-                                $("#destination_input").val("asd");
-                            }
+                            var change_text = "도착지: " + e;
+                            $("#end").text(change_text);
+                            $("#destination_input").val("asd");
+                            
                         }
                         var myLDN = L.map('mapLondon').setView([51.505, -0.12], 12);
                         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -338,13 +338,15 @@ main p {
                         }).addTo(myLDN);
                         $(document).ready(function() {
                             $("#map_hidden").click(function() {
-                                if ($("#mapLondon").height() == 500) {
-
+                                if ($("#mapLondon").height() == 0) {
                                     $("#mapLondon").height(800);
                                     myLDN.invalidateSize();
+                                    $("#findRoute").show();
                                 } else {
-                                    $("#mapLondon").height(500);
+                                    $("#mapLondon").height(0);
                                     myLDN.invalidateSize();
+                                    $("#findRoute").hide();
+
                                 }
                             });
                         });
@@ -355,7 +357,7 @@ main p {
                             radius: 500
                         }).addTo(myLDN);
 
-                        circle1.bindPopup("<img src=" + "image/london/London_Eye.png" + " style=" + "width:100px;" + "><br><br> Here is the 'London Eye'<br><br>" + "<a href=" + "#" + "style=" + "width: 50%" + "onclick='setLocation()" + ">출발</a>" + "&nbsp;&nbsp;&nbsp;" + "<a href=" + "#" + "style=" + "width: 50%" + ">도착</a>");
+                        circle1.bindPopup("<img src=" + "image/london/London_Eye.png" + " style=" + "width:100px;" + "><br><br> Here is the 'London Eye'<br><br><button style=width: 50% id=" + "'London Eye'" + " onclick=" + "setOrigin(this.id);" + ">출발</button>" + "&nbsp;&nbsp;&nbsp;" + "<button style=width: 50%; id=" + "'London Eye'" + " onclick=setDestination(this.id);>도착</button>");
 
                         var circle2 = L.circle([51.4995, -0.1248], {
                             color: 'red',
@@ -363,7 +365,7 @@ main p {
                             fillOpacity: 0.5,
                             radius: 500
                         }).addTo(myLDN);
-                        circle2.bindPopup("<img src=image/london/Palace_of_Westminster.png style=width:100px;><br><br> Here is the 'Palace of Westminster'<br><br><button style=width: 50% id=pow  onclick=" + "setOrigin(this.id);" + ">출발</button>" + "&nbsp;&nbsp;&nbsp;" + "<button style=width: 50%; id=pow onclick=setDestination(this.id);>도착</button>");
+                        circle2.bindPopup("<img src=image/london/Palace_of_Westminster.png style=width:100px;><br><br> Here is the 'Palace of Westminster'<br><br><button style=width: 50% id=" + "'Palace of Westminster'" +  " onclick=" + "setOrigin(this.id);" + ">출발</button>" + "&nbsp;&nbsp;&nbsp;" + "<button style=width: 50%; id=" + "'Palace of Westminster'" + " onclick=setDestination(this.id);>도착</button>");
 
                         var circle3 = L.circle([51.5074, -0.1666], {
                             color: 'red',
@@ -371,7 +373,7 @@ main p {
                             fillOpacity: 0.5,
                             radius: 500
                         }).addTo(myLDN);
-                        circle3.bindPopup("<br> Here is the 'Hyde Park'");
+                        circle3.bindPopup("<br> Here is the 'Hyde Park'<br><br><button style=width: 50% id=" + "'Hyde Park'" + " onclick=" + "setOrigin(this.id);" + ">출발</button>" + "&nbsp;&nbsp;&nbsp;" + "<button style=width: 50%; id=" + "'Hyde Park'" + " onclick=setDestination(this.id);>도착</button>");
 
                         var circle4 = L.circle([51.5014, -0.142], {
                             color: 'red',
@@ -379,7 +381,7 @@ main p {
                             fillOpacity: 0.5,
                             radius: 500
                         }).addTo(myLDN);
-                        circle4.bindPopup("<br> Here is the 'Buckingham Palace'");
+                        circle4.bindPopup("<br> Here is the 'Buckingham Palace'<br><br><button style=width: 50% id=" + "'Buckingham Palace'" + " onclick=" + "setOrigin(this.id);" + ">출발</button>" + "&nbsp;&nbsp;&nbsp;" + "<button style=width: 50%; id=" + "'Buckingham Palace'" + " onclick=setDestination(this.id);>도착</button>");
 
                         var circle5 = L.circle([51.506, -0.0767], {
                             color: 'red',
@@ -387,18 +389,29 @@ main p {
                             fillOpacity: 0.5,
                             radius: 500
                         }).addTo(myLDN);
-                        circle5.bindPopup("<br> Here is the 'Tower Bridge'");
+                        circle5.bindPopup("<br> Here is the 'Tower Bridge'<br><br><button style=width: 50% id=" + "'Tower Bridge'" + " onclick=" + "setOrigin(this.id);" + ">출발</button>" + "&nbsp;&nbsp;&nbsp;" + "<button style=width: 50%; id=" + "'Tower Bridge'" + " onclick=setDestination(this.id);>도착</button>");
 
                         var popup = L.popup();
 
                     </script>
                     <br>
+                    <p id="start"></p>
+                    <p id="end"></p>
+                    <form action="\Users\shim9\OneDrive\문서\GitHub\HOT_TRACE\route.html" method="get" onsubmit="return checkEmpty()">
+                        <!-- 절대경로에서 상대경로로 수정해야함 -->
+                        <input type="text" id="start_input" name="start" style="display: none" value="">
+                        <input type="text" id="destination_input" name="destination" style="display: none" value="">
+                        <button type="submit" id="findRoute" style="display:none">길찾기</button>
+                        </form>
+                    
                     <p> 주요 관광 지역 </p>
-                    <img src="image/london/top5_BKH.png" style="width: 80px">
-                    <img src="image/london/top5_LDE.png" style="width: 80px">
-                    <img src="image/london/top5_TWB.png" style="width: 80px">
-                    <img src="image/london/top5_TFS.png" style="width: 80px">
-                    <img src="image/london/top5_HDP.png" style="width: 80px">
+                    <a href="#mapLondon"><img src="image/london/round_BKH.png" style="width: 100px" title="버킹엄 궁전"></a>
+                    <a href="#mapLondon"><img src="image/london/round_LDE.png" style="width: 100px" title="런던 아이"></a>
+                    <a href="#mapLondon"><img src="image/london/round_TWB.png" style="width: 100px" title="타워 브릿지"></a>
+                    <a href="#mapLondon"><img src="image/london/round_TFS.png" style="width: 100px" title="트라팔가 광장"></a>
+                    <a href="#mapLondon"><img src="image/london/round_HDP.png" style="width: 100px" title="하이드 파크"></a>
+                    <a href="#mapLondon"><img src="image/london/round_SPC.png" style="width: 100px" title="세인트 폴 대성당"></a>
+                    <a href="#mapLondon"><img src="image/london/round_WMA.png" style="width: 100px" title="웨스트민스터 사원"></a>
                     <p> <button style="width: 100%"> 알아보기 </button></p>
                 </main>
             </section>
