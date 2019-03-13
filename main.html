@@ -1,0 +1,449 @@
+<html>
+<style>
+    label.panel-label {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: block;
+    width: 100%;
+    color: #bdc3c7;
+    cursor: pointer;
+    background-color: #ecf0f1;
+    -webkit-transition-property: background-color, color;
+    transition-property: background-color, color;
+    -webkit-transition-duration: 200ms;
+    transition-duration: 200ms;
+}
+label.panel-label:hover {
+    color: #003399;
+}
+#panels {
+    background-color: white;
+}
+#panels .container {
+    margin: 0 auto;
+    width: 95%;
+}
+#panels section header label.panel-label {
+    padding: 12px 24px;
+    box-sizing: border-box;
+}
+#panels section main {
+    box-sizing: border-box;
+    max-height: 0;
+    opacity: 0;
+    -webkit-transition: opacity 600ms;
+    transition: opacity 600ms;
+    overflow-y: hidden;
+}
+#panel-1-ctrl:checked ~ #panels #panel-1 main {
+    max-height: initial;
+    opacity: 1;
+    padding: 48px 24px;
+}
+#panel-2-ctrl:checked ~ #panels #panel-2 main {
+    max-height: initial;
+    opacity: 1;
+    padding: 48px 24px;
+}
+#panel-3-ctrl:checked ~ #panels #panel-3 main {
+    max-height: initial;
+    opacity: 1;
+    padding: 48px 24px;
+}
+#panel-4-ctrl:checked ~ #panels #panel-4 main {
+    max-height: initial;
+    opacity: 1;
+    padding: 48px 24px;
+}
+#panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1 {
+    pointer-events: none;
+    cursor: default;
+    -webkit-transform: translate3d(0, 1px, 0);
+    transform: translate3d(0, 1px, 0);
+    box-shadow: none;
+    border-right: none;
+}
+#panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1.last {
+    border-right: 1px solid transparent;
+}
+#panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1 + li {
+    border-left: 1px solid #dfdfdf;
+}
+#panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1 label.panel-label {
+    background-color: white;
+    color: #003399;
+    padding-top: 24px;
+}
+#panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1 label.panel-label::after {
+    height: 6px;
+}
+#panel-2-ctrl:checked ~ #tabs-list #li-for-panel-2 {
+    pointer-events: none;
+    cursor: default;
+    -webkit-transform: translate3d(0, 1px, 0);
+    transform: translate3d(0, 1px, 0);
+    box-shadow: none;
+    border-right: none;
+}
+#panel-2-ctrl:checked ~ #tabs-list #li-for-panel-2.last {
+    border-right: 1px solid transparent;
+}
+#panel-2-ctrl:checked ~ #tabs-list #li-for-panel-2 + li {
+    border-left: 1px solid #dfdfdf;
+}
+#panel-2-ctrl:checked ~ #tabs-list #li-for-panel-2 label.panel-label {
+    background-color: white;
+    color: #003399;
+    padding-top: 24px;
+}
+#panel-2-ctrl:checked ~ #tabs-list #li-for-panel-2 label.panel-label::after {
+    height: 6px;
+}
+#panel-3-ctrl:checked ~ #tabs-list #li-for-panel-3 {
+    pointer-events: none;
+    cursor: default;
+    -webkit-transform: translate3d(0, 1px, 0);
+    transform: translate3d(0, 1px, 0);
+    box-shadow: none;
+    border-right: none;
+}
+#panel-3-ctrl:checked ~ #tabs-list #li-for-panel-3.last {
+    border-right: 1px solid transparent;
+}
+#panel-3-ctrl:checked ~ #tabs-list #li-for-panel-3 + li {
+    border-left: 1px solid #dfdfdf;
+}
+#panel-3-ctrl:checked ~ #tabs-list #li-for-panel-3 label.panel-label {
+    background-color: white;
+    color: #003399;
+    padding-top: 24px;
+}
+#panel-3-ctrl:checked ~ #tabs-list #li-for-panel-3 label.panel-label::after {
+    height: 6px;
+}
+#panel-4-ctrl:checked ~ #tabs-list #li-for-panel-4 {
+    pointer-events: none;
+    cursor: default;
+    -webkit-transform: translate3d(0, 1px, 0);
+    transform: translate3d(0, 1px, 0);
+    box-shadow: none;
+    border-right: none;
+}
+#panel-4-ctrl:checked ~ #tabs-list #li-for-panel-4.last {
+    border-right: 1px solid transparent;
+}
+#panel-4-ctrl:checked ~ #tabs-list #li-for-panel-4 + li {
+    border-left: 1px solid #dfdfdf;
+}
+#panel-4-ctrl:checked ~ #tabs-list #li-for-panel-4 label.panel-label {
+    background-color: white;
+    color: #003399;
+    padding-top: 24px;
+}
+#panel-4-ctrl:checked ~ #tabs-list #li-for-panel-4 label.panel-label::after {
+    height: 6px;
+}            
+            
+ul#tabs-list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    text-align: center;
+    border-bottom: 1px solid #dfdfdf;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border-bottom: 1px solid #dfdfdf;
+}
+ul#tabs-list li {
+    display: flex;
+    text-align: center;
+    font-size: 0.875em;
+    width: 38%;
+    box-shadow: 0px -2px 2px rgba(0, 0, 0, 0.05);
+    border-right: 1px solid #dfdfdf;
+    position: relative;
+}
+ul#tabs-list li:hover {
+    -webkit-transition: none;
+    transition: none;
+    border-right: none;
+}
+ul#tabs-list li:hover.last {
+    border-right: 1px solid transparent;
+}
+ul#tabs-list li:hover + li {
+    border-left: 1px solid #dfdfdf;
+}
+ul#tabs-list li label.panel-label {
+    position: relative;
+    padding: 24px 0;
+    font-size: 0.875em;
+}
+ul#tabs-list li label.panel-label::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 100%;
+    background-color: #f16b6f;
+    height: 0;
+    -webkit-transition-property: height;
+    transition-property: height;
+    -webkit-transition-duration: 200ms;
+    transition-duration: 200ms;
+}
+ul#tabs-list li label.panel-label:hover {
+    padding-top: 24px;
+}
+ul#tabs-list li label.panel-label:hover::after {
+    height: 6px;
+}
+main {
+    width: 100%;
+    margin: 0 auto;
+}
+.panel-radios {
+    display: none;
+}
+body {
+    background: #ffffff;
+    color: #444;
+}
+main p {
+    line-height: 1.8;
+}
+        </style>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="leaflet/leaflet.css" />
+    <script src="leaflet/leaflet.js">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js">
+    </script>
+</head>
+<header>
+    <div style="height: 100%;">
+        <table style="float: left; width: 100%;">
+            <tbody>
+                <tr style="height: 5px;"></tr>
+                <tr>
+                    <td>
+                        <img src="image/map.png">
+                    </td>
+                    <td>
+                        <img src="image/talk.png">
+                    </td>
+                    <td>
+                        <img src="image/board.png">
+                    </td>
+                    <td>
+                        <img style="float: right;" src="image/menu.png">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</header>
+
+<body>
+    <input id="panel-1-ctrl" class="panel-radios" type="radio" name="tab-radios" checked>
+    <input id="panel-2-ctrl" class="panel-radios" type="radio" name="tab-radios">
+    <input id="panel-3-ctrl" class="panel-radios" type="radio" name="tab-radios">
+    <input id="panel-4-ctrl" class="panel-radios" type="radio" name="tab-radios">
+    <input id="panel-5-ctrl" class="panel-radios" type="radio" name="tab-radios">
+    <input id="panel-6-ctrl" class="panel-radios" type="radio" name="tab-radios">
+    <input id="panel-7-ctrl" class="panel-radios" type="radio" name="tab-radios">
+    <input id="panel-8-ctrl" class="panel-radios" type="radio" name="tab-radios">
+
+    <!-- TABS LIST -->
+    <ul id="tabs-list">
+        <!-- MENU TOGGLE -->
+        <li id="li-for-panel-1">
+            <label class="panel-label" for="panel-1-ctrl"><img src="image/London.png" style="width: 200px; height: 150px"></label>
+        </li>
+        <li id="li-for-panel-2">
+            <label class="panel-label" for="panel-2-ctrl"><img src="image/Edinburgh.png" style="width: 200px; height: 150px"></label>
+        </li>
+        <li id="li-for-panel-3">
+            <label class="panel-label" for="panel-3-ctrl"><img src="image/Rome.png" style="width: 200px; height: 150px"></label>
+        </li>
+        <li id="li-for-panel-4">
+            <label class="panel-label" for="panel-4-ctrl"><img src="image/Berlin.png" style="width: 200px; height: 150px"></label>
+        </li>
+    </ul>
+
+    <!-- THE PANELS -->
+    <article id="panels">
+        <div class="container">
+            <section id="panel-1">
+                <main>
+                    <p> 잉글랜드 런던 </p>
+                    <p id="start">출발지: </p>
+                    <p id="end">도착지: </p>
+                    <form action="/default_html/route.html" method="get">
+                        <input type="text" value="asd" style="display: none;">
+                        <button type="submit">제출</button>
+                    </form>
+                    <button id="map_hidden">> 핫 플레이스 알아보기 </button>
+                    <div id="mapLondon"></div>
+                    <script>
+                        function setOrigin(e1) {
+                            alert(e1);
+                            if (e1 == "pow") {
+                                var change_text = "출발지: Palace of Westminster";
+                                $("#start").text(change_text);
+                            }
+                        };
+
+                        function setDestination(e) {
+                            if(e == "pow"){
+                                var change_text = "도착지: Palace of Westminster";
+                                $("#end").text(change_text);
+                            }
+                        }
+                        var myLDN = L.map('mapLondon').setView([51.505, -0.12], 12);
+                        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                            maxZoom: 18,
+                            id: 'mapbox.streets',
+                            accessToken: 'pk.eyJ1Ijoic3dwYXJrNzA2IiwiYSI6ImNqc3E0czNqZjAxcmU0NGxia3hnMmhzZGsifQ.PeerIezauoZBKoR7jSKa1A'
+                        }).addTo(myLDN);
+                        $(document).ready(function() {
+                            $("#map_hidden").click(function() {
+                                if ($("#mapLondon").height() == 500) {
+
+                                    $("#mapLondon").height(800);
+                                    myLDN.invalidateSize();
+                                } else {
+                                    $("#mapLondon").height(500);
+                                    myLDN.invalidateSize();
+                                }
+                            });
+                        });
+                        var circle1 = L.circle([51.503, -0.1195], {
+                            color: 'red',
+                            fillColor: '#f03',
+                            fillOpacity: 0.5,
+                            radius: 500
+                        }).addTo(myLDN);
+
+                        circle1.bindPopup("<img src=" + "image/london/London_Eye.png" + " style=" + "width:100px;" + "><br><br> Here is the 'London Eye'<br><br>" + "<a href=" + "#" + "style=" + "width: 50%" + "onclick='setLocation()" + ">출발</a>" + "&nbsp;&nbsp;&nbsp;" + "<a href=" + "#" + "style=" + "width: 50%" + ">도착</a>");
+
+                        var circle2 = L.circle([51.4995, -0.1248], {
+                            color: 'red',
+                            fillColor: '#f03',
+                            fillOpacity: 0.5,
+                            radius: 500
+                        }).addTo(myLDN);
+                        circle2.bindPopup("<img src=image/london/Palace_of_Westminster.png style=width:100px;><br><br> Here is the 'Palace of Westminster'<br><br><button style=width: 50% id=pow  onclick=" + "setOrigin(this.id);" + ">출발</button>" + "&nbsp;&nbsp;&nbsp;" + "<button style=width: 50%; id=pow onclick=setDestination(this.id);>도착</button>");
+
+                        var circle3 = L.circle([51.5074, -0.1666], {
+                            color: 'red',
+                            fillColor: '#f03',
+                            fillOpacity: 0.5,
+                            radius: 500
+                        }).addTo(myLDN);
+                        circle3.bindPopup("<br> Here is the 'Hyde Park'");
+
+                        var circle4 = L.circle([51.5014, -0.142], {
+                            color: 'red',
+                            fillColor: '#f03',
+                            fillOpacity: 0.5,
+                            radius: 500
+                        }).addTo(myLDN);
+                        circle4.bindPopup("<br> Here is the 'Buckingham Palace'");
+
+                        var circle5 = L.circle([51.506, -0.0767], {
+                            color: 'red',
+                            fillColor: '#f03',
+                            fillOpacity: 0.5,
+                            radius: 500
+                        }).addTo(myLDN);
+                        circle5.bindPopup("<br> Here is the 'Tower Bridge'");
+
+                        var popup = L.popup();
+
+                    </script>
+                    <br>
+                    <p> 주요 관광 지역 </p>
+                    <img src="image/london/top5_BKH.png" style="width: 80px">
+                    <img src="image/london/top5_LDE.png" style="width: 80px">
+                    <img src="image/london/top5_TWB.png" style="width: 80px">
+                    <img src="image/london/top5_TFS.png" style="width: 80px">
+                    <img src="image/london/top5_HDP.png" style="width: 80px">
+                    <p> <button style="width: 100%"> 알아보기 </button></p>
+                </main>
+            </section>
+            <section id="panel-2">
+                <main>
+                    <p> 스코틀랜드 에든버러 <br>
+                        <blockquote>스코틀랜드의 수도이며, 글래스고 다음으로 큰 도시다. 1437년 스코틀랜드의 수도가 되었으며, 이후 스코틀랜드의 문화, 정치, 교육, 관광의 중심지 역할을 하고 있다. 18세기 스코틀랜드를 유럽의 상업, 지식, 산업, 문학, 교육의 중심지로 만든 스코틀랜드 계몽주의가 시작된 곳으로 역사적 의미를 갖고 있으며, 영어권에서 여섯 번째로 오래되고, 스코틀랜드에서 네 번째로 세워진 에든버러 대학교가 시내 중심에 위치해 있다.
+
+                            주요 산업은 금융업과 관광업이며, 금융업은 영국 내에서 두 번째, 유럽에서 여섯 번째로 큰 규모이다.[1][2] 영국 5대 은행 중 로이드 그룹(2008년 로이드에 편입된 뱅크오브스코틀랜드 포함)과 로열뱅크오브스코틀랜드(RBS) 그룹의 본사가 위치해 있다.
+
+                            에든버러는 영국에서 런던에 다음으로 많은 관광객을 유치하며, 해마다 1300만 명이 찾는 관광도시이다. 특히 해마다 열리는 에든버러 축제가 유명한데, 각각의 축제들이 집중되는 8월 초부터 4주간은 시에 머무는 사람이 평소 거주자의 최소 2배 이상 늘어난다. 이러한 축제 중 에든버러 프린지 페스티벌(세계에서 가장 큰 행위예술 페스티벌), 에든버러 국제 페스티벌, 에든버러 밀리터리 타투, 에든버러 국제 영화제가 가장 이름나 있다.</blockquote>
+                    </p>
+                    <p>> 핫 플레이스 알아보기 </p>
+                    <div id="mapEdinburgh"></div>
+                    <script>
+                        var myEDN = L.map('mapEdinburgh').setView([55.952, -3.196], 13);
+                        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                            maxZoom: 18,
+                            id: 'mapbox.streets',
+                            accessToken: 'pk.eyJ1Ijoic3dwYXJrNzA2IiwiYSI6ImNqc3E0czNqZjAxcmU0NGxia3hnMmhzZGsifQ.PeerIezauoZBKoR7jSKa1A'
+                        }).addTo(myEDN);
+
+                    </script>
+                    <p> 주요 관광 지역 </p>
+                    <p> <button style="width: 100%"> 알아보기 </button></p>
+                </main>
+            </section>
+            <section id="panel-3">
+                <main>
+                    <p> 이탈리아 로마 </p>
+                    <p>> 핫 플레이스 알아보기 </p>
+                    <div id="mapRome"></div>
+                    <script>
+                        var myROM = L.map('mapRome').setView([41.895, 12.484], 13);
+                        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                            maxZoom: 18,
+                            id: 'mapbox.streets',
+                            accessToken: 'pk.eyJ1Ijoic3dwYXJrNzA2IiwiYSI6ImNqc3E0czNqZjAxcmU0NGxia3hnMmhzZGsifQ.PeerIezauoZBKoR7jSKa1A'
+                        }).addTo(myROM);
+
+                    </script>
+                    <p> 주요 관광 지역 </p>
+                    <p> <button style="width: 100%"> 알아보기 </button></p>
+                </main>
+            </section>
+            <section id="panel-4">
+                <main>
+                    <p> 독일 베를린 </p>
+                    <p>> 핫 플레이스 알아보기 </p>
+                    <div id="mapBerlin"></div>
+                    <script>
+                        var myBLN = L.map('mapBerlin').setView([52.5182, 13.408], 13);
+                        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                            maxZoom: 18,
+                            id: 'mapbox.streets',
+                            accessToken: 'pk.eyJ1Ijoic3dwYXJrNzA2IiwiYSI6ImNqc3E0czNqZjAxcmU0NGxia3hnMmhzZGsifQ.PeerIezauoZBKoR7jSKa1A'
+                        }).addTo(myBLN);
+
+                    </script>
+                    <p> 주요 관광 지역 </p>
+                    <p> <button style="width: 100%"> 알아보기 </button></p>
+                </main>
+            </section>
+        </div>
+    </article>
+</body>
+
+</html>

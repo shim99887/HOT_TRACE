@@ -1,0 +1,259 @@
+<html>
+        <style>
+            label.panel-label {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: block;
+    width: 100%;
+    color: #bdc3c7;
+    cursor: pointer;
+    background-color: #ecf0f1;
+    -webkit-transition-property: background-color, color;
+    transition-property: background-color, color;
+    -webkit-transition-duration: 200ms;
+    transition-duration: 200ms;
+}
+label.panel-label:hover {
+    color: #003399;
+}
+#panels {
+    background-color: white;
+}
+#panels .container {
+    margin: 0 auto;
+    width: 90%;
+}
+#panels section header label.panel-label {
+    padding: 12px 24px;
+    box-sizing: border-box;
+}
+#panels section main {
+    box-sizing: border-box;
+    max-height: 0;
+    opacity: 0;
+    -webkit-transition: opacity 600ms;
+    transition: opacity 600ms;
+    overflow-y: hidden;
+}
+#panel-1-ctrl:checked ~ #panels #panel-1 main {
+    max-height: initial;
+    opacity: 1;
+    padding: 48px 24px;
+}
+#panel-2-ctrl:checked ~ #panels #panel-2 main {
+    max-height: initial;
+    opacity: 1;
+    padding: 48px 24px;
+}
+#panel-3-ctrl:checked ~ #panels #panel-3 main {
+    max-height: initial;
+    opacity: 1;
+    padding: 48px 24px;
+}
+#panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1 {
+    pointer-events: none;
+    cursor: default;
+    -webkit-transform: translate3d(0, 1px, 0);
+    transform: translate3d(0, 1px, 0);
+    box-shadow: none;
+    border-right: none;
+}
+#panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1.last {
+    border-right: 1px solid transparent;
+}
+#panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1 + li {
+    border-left: 1px solid #dfdfdf;
+}
+#panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1 label.panel-label {
+    background-color: white;
+    color: #003399;
+    padding-top: 24px;
+}
+#panel-1-ctrl:checked ~ #tabs-list #li-for-panel-1 label.panel-label::after {
+    height: 6px;
+}
+#panel-2-ctrl:checked ~ #tabs-list #li-for-panel-2 {
+    pointer-events: none;
+    cursor: default;
+    -webkit-transform: translate3d(0, 1px, 0);
+    transform: translate3d(0, 1px, 0);
+    box-shadow: none;
+    border-right: none;
+}
+#panel-2-ctrl:checked ~ #tabs-list #li-for-panel-2.last {
+    border-right: 1px solid transparent;
+}
+#panel-2-ctrl:checked ~ #tabs-list #li-for-panel-2 + li {
+    border-left: 1px solid #dfdfdf;
+}
+#panel-2-ctrl:checked ~ #tabs-list #li-for-panel-2 label.panel-label {
+    background-color: white;
+    color: #003399;
+    padding-top: 24px;
+}
+#panel-2-ctrl:checked ~ #tabs-list #li-for-panel-2 label.panel-label::after {
+    height: 6px;
+}
+#panel-3-ctrl:checked ~ #tabs-list #li-for-panel-3 {
+    pointer-events: none;
+    cursor: default;
+    -webkit-transform: translate3d(0, 1px, 0);
+    transform: translate3d(0, 1px, 0);
+    box-shadow: none;
+    border-right: none;
+}
+#panel-3-ctrl:checked ~ #tabs-list #li-for-panel-3.last {
+    border-right: 1px solid transparent;
+}
+#panel-3-ctrl:checked ~ #tabs-list #li-for-panel-3 + li {
+    border-left: 1px solid #dfdfdf;
+}
+#panel-3-ctrl:checked ~ #tabs-list #li-for-panel-3 label.panel-label {
+    background-color: white;
+    color: #003399;
+    padding-top: 24px;
+}
+#panel-3-ctrl:checked ~ #tabs-list #li-for-panel-3 label.panel-label::after {
+    height: 6px;
+}
+ul#tabs-list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    text-align: center;
+    border-bottom: 1px solid #dfdfdf;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border-bottom: 1px solid #dfdfdf;
+}
+ul#tabs-list li {
+    display: flex;
+    text-align: center;
+    font-size: 0.875em;
+    width: 18%;
+    box-shadow: 0px -2px 2px rgba(0, 0, 0, 0.05);
+    border-right: 1px solid #dfdfdf;
+    position: relative;
+}
+ul#tabs-list li:hover {
+    -webkit-transition: none;
+    transition: none;
+    border-right: none;
+}
+ul#tabs-list li:hover.last {
+    border-right: 1px solid transparent;
+}
+ul#tabs-list li:hover + li {
+    border-left: 1px solid #dfdfdf;
+}
+ul#tabs-list li label.panel-label {
+    position: relative;
+    padding: 24px 0;
+    font-size: 0.875em;
+}
+ul#tabs-list li label.panel-label::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 100%;
+    background-color: #f16b6f;
+    height: 0;
+    -webkit-transition-property: height;
+    transition-property: height;
+    -webkit-transition-duration: 200ms;
+    transition-duration: 200ms;
+}
+ul#tabs-list li label.panel-label:hover {
+    padding-top: 24px;
+}
+ul#tabs-list li label.panel-label:hover::after {
+    height: 6px;
+}
+main {
+    width: 70%;
+    margin: 0 auto;
+}
+.panel-radios {
+    display: none;
+}
+body {
+    background: #ffffff;
+    color: #444;
+}
+main p {
+    line-height: 1.8;
+}
+        </style>
+
+<head>
+    
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<header>
+        <div style="height: 100%;">
+            <table style="float: left; width: 100%;">
+                <tbody>
+                    <tr style="height: 5px;"></tr>
+                    <tr>
+                        <td>
+                            <img src="image/map.png">
+                        </td>
+                        <td>
+                            <img src="image/talk.png">
+                        </td>
+                        <td>
+                            <img src="image/board.png">
+                        </td>
+                        <td>
+                            <img style="float: right;" src="image/menu.png">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </header>
+<body>
+        <input id="panel-1-ctrl" class="panel-radios" type="radio" name="tab-radios" checked>
+<input id="panel-2-ctrl" class="panel-radios" type="radio" name="tab-radios">
+<input id="panel-3-ctrl" class="panel-radios" type="radio" name="tab-radios">
+ 
+<!-- TABS LIST -->
+<ul id="tabs-list">
+    <!-- MENU TOGGLE -->
+    <li id="li-for-panel-1">
+      <label class="panel-label" for="panel-1-ctrl">이더리움 구매</label>
+    </li>
+    <li id="li-for-panel-2">
+      <label class="panel-label" for="panel-2-ctrl">포인트로 환급</label>
+    </li>    
+</ul>
+ 
+<!-- THE PANELS -->
+<article id="panels">
+  <div class="container">
+    <section id="panel-1">
+      <main>
+        <p>> 구매 희망 가격(1ETH 당) &nbsp; <input type="text" style="width: 20%;"> 포인트</p>
+        <p>> 이더리움 구매량 <input type="number" placeholder="0" min="0" max="10" step="1" style="width: 10%;"> </p>
+        <p> 평균 거래가  1ETH : 10000 Points</p>
+        <p> <button style="width: 100%"> 거래 신청 </button></p>
+      </main>
+    </section>
+    <section id="panel-2">
+      <main>
+            <p>> 판매 희망 가격(1ETH 당) &nbsp; <input type="text" style="width: 20%;"> 포인트</p>
+            <p>> 이더리움 판매량 <input type="number" placeholder="0" min="0" max="10" step="1" style="width: 10%;"> </p>
+            <p> 평균 거래가  1ETH : 10000 Points</p>
+            <p> <button style="width: 100%"> 거래 신청 </button></p>
+      </main>
+    </section>
+    
+  </div>
+</article>
+</body>
+
+</html>
