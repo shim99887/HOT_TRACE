@@ -51,17 +51,36 @@
     </div>
     <div id="map"></div>
     <script>
-        $(document).ready(function(){
-           alert(Request); 
+        var Receive_start;
+        var Receive_end;
+
+        var start_lat;
+        var start_lng;
+        var destination_lat;
+        var destination_lng;
+        
+        $(document).ready(function() {
+            Receive_start = getParameterByName('start');
+            Receive_end = getParameterByName('destination');
+            alert(Receive_start);
+            if(Receive_start == "Pow"){
+                start_lat = 51.499499;
+                start_lng = -0.124809;
+            }
+            if(Receive_end == "asd"){
+                destination_lat = 51.505450;
+                destination_lng = -0.075411;
+            }
         });
+
         function initMap() {
             var directionsDisplay = new google.maps.DirectionsRenderer;
             var directionsService = new google.maps.DirectionsService;
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 12,
                 center: {
-                    lat: 51.505,
-                    lng: -0.12
+                    lat: 51.50,
+                    lng: -0.124
                 }
             });
             directionsDisplay.setMap(map);
@@ -73,15 +92,16 @@
         }
 
         function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+            alert(start_lat);
             var selectedMode = document.getElementById('mode').value;
             directionsService.route({
                 origin: {
-                    lat: 41.9,
-                    lng: 12.483
+                    lat: start_lat,
+                    lng: start_lng
                 }, // Haight.
                 destination: {
-                    lat: 41.906,
-                    lng: 12.4537
+                    lat: destination_lat,
+                    lng: destination_lng
                 }, // Ocean Beach.
                 // Note that Javascript allows us to access the constant
                 // using square brackets and a string value as its
@@ -94,6 +114,13 @@
                     window.alert('Directions request failed due to ' + status);
                 }
             });
+        }
+
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
         }
 
     </script>

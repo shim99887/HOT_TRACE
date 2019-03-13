@@ -285,7 +285,7 @@ main p {
                     <p> 잉글랜드 런던 </p>
                     <p id="start">출발지: </p>
                     <p id="end">도착지: </p>
-                    <form action="/default_html/route.html" method="get" onsubmit="return checkEmpty()">
+                    <form action="\Users\shim9\OneDrive\문서\GitHub\HOT_TRACE\route.html" method="get" onsubmit="return checkEmpty()">
                         <input type="text" id="start_input" name="start" style="display: none" value="">
                         <input type="text" id="destination_input" name="destination" style="display: none" value="">
                         <button type="submit">길찾기</button>
@@ -300,7 +300,7 @@ main p {
                                 return false;
                             }
                             else if($("#destination_input").val() == ""){
-                                alert("목적지를 입력허세요");
+                                alert("목적지를 입력하세요");
                                 return false;
                             }
                             else{
@@ -326,7 +326,7 @@ main p {
                             if(e == "pow"){
                                 var change_text = "도착지: Palace of Westminster";
                                 $("#end").text(change_text);
-                                $("#destination_input").val("Pow");
+                                $("#destination_input").val("asd");
                             }
                         }
                         var myLDN = L.map('mapLondon').setView([51.505, -0.12], 12);
