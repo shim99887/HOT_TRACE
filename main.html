@@ -285,18 +285,40 @@ main p {
                     <p> 잉글랜드 런던 </p>
                     <p id="start">출발지: </p>
                     <p id="end">도착지: </p>
-                    <form action="/default_html/route.html" method="get">
-                        <input type="text" value="asd" style="display: none;">
+                    <form action="/default_html/route.html" method="get" onsubmit="return checkEmpty()">
+                        <input type="text" id="start_input" name="start" style="display: none" value="">
+                        <input type="text" id="destination_input" name="destination" style="display: none" value="">
                         <button type="submit">제출</button>
                     </form>
                     <button id="map_hidden">> 핫 플레이스 알아보기 </button>
                     <div id="mapLondon"></div>
                     <script>
+                        function checkEmpty(){
+                            alert($("#start_input").val());
+                            if($("#start_input").val() == ""){
+                                alert("출발지를 입력하세요");
+                                return false;
+                            }
+                            else if($("#destination_input").val() == ""){
+                                alert("목적지를 입력허세요");
+                                return false;
+                            }
+                            else{
+                                return true;
+                            }
+                        }
+                        
+                        $("#submit").click(function(){
+                            if(("$start").text() == "출발지: "){
+                                
+                            }
+                        });
                         function setOrigin(e1) {
                             alert(e1);
                             if (e1 == "pow") {
                                 var change_text = "출발지: Palace of Westminster";
                                 $("#start").text(change_text);
+                                $("#start_input").val("Pow");
                             }
                         };
 
@@ -304,6 +326,7 @@ main p {
                             if(e == "pow"){
                                 var change_text = "도착지: Palace of Westminster";
                                 $("#end").text(change_text);
+                                $("#destination_input").val("Pow");
                             }
                         }
                         var myLDN = L.map('mapLondon').setView([51.505, -0.12], 12);
