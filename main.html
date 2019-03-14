@@ -308,7 +308,13 @@ main p {
                                 return false;
                             }
                             else{
-                                return true;
+                                if($("#start_input").val() == $("#destination_input").val()){
+                                        alert("출발지와 목적지가 일치합니다.");
+                                        return false;
+                                    }
+                                else{
+                                    return true;
+                                }
                             }
                         }
                         
@@ -320,7 +326,28 @@ main p {
                         function setOrigin(e) {
                             var change_text = "출발지: " + e;
                             $("#start").text(change_text);
-                            $("#start_input").val("Pow");
+                            switch(e){
+                                case "London_Eye":{
+                                    $("#start_input").val("London_Eye");
+                                    break;
+                                }
+                                case "Palace_of_Westminster":{
+                                    $("#start_input").val("Palace_of_Westminster");
+                                    break;
+                                }
+                                case "Hyde_Park":{
+                                    $("#start_input").val("Hyde_Park");
+                                    break;
+                                }
+                                case "Buckingham_Palace":{
+                                    $("#start_input").val("Buckingham_Palace");
+                                    break;
+                                }
+                                case "Tower_Bridge":{
+                                    $("#start_input").val("Tower_Bridge");
+                                    break;
+                                }
+                            }
                         };
 
                         function setDestination(e) {
@@ -357,7 +384,7 @@ main p {
                             radius: 500
                         }).addTo(myLDN);
 
-                        circle1.bindPopup("<img src=" + "image/london/London_Eye.png" + " style=" + "width:100px;" + "><br><br> Here is the 'London Eye'<br><br><button style=width: 50% id=" + "'London Eye'" + " onclick=" + "setOrigin(this.id);" + ">출발</button>" + "&nbsp;&nbsp;&nbsp;" + "<button style=width: 50%; id=" + "'London Eye'" + " onclick=setDestination(this.id);>도착</button>");
+                        circle1.bindPopup("<img src=\image\london\London_Eye.png style= width:100px;><br><br> Here is the 'London Eye'<br><br><button style=width: 50% id='London Eye' onclick=setOrigin(this.id);>출발</button>&nbsp;&nbsp;&nbsp;<button style=width: 50%; id='London_Eye' onclick=setDestination(this.id);>도착</button>");
 
                         var circle2 = L.circle([51.4995, -0.1248], {
                             color: 'red',
@@ -365,7 +392,7 @@ main p {
                             fillOpacity: 0.5,
                             radius: 500
                         }).addTo(myLDN);
-                        circle2.bindPopup("<img src=image/london/Palace_of_Westminster.png style=width:100px;><br><br> Here is the 'Palace of Westminster'<br><br><button style=width: 50% id=" + "'Palace of Westminster'" +  " onclick=" + "setOrigin(this.id);" + ">출발</button>" + "&nbsp;&nbsp;&nbsp;" + "<button style=width: 50%; id=" + "'Palace of Westminster'" + " onclick=setDestination(this.id);>도착</button>");
+                        circle2.bindPopup("<img src=\image\london\Palace_of_Westminster.png style=width:100px;><br><br> Here is the 'Palace of Westminster'<br><br><button style=width: 50% id=" + "'Palace_of_Westminster'" +  " onclick=" + "setOrigin(this.id);" + ">출발</button>" + "&nbsp;&nbsp;&nbsp;" + "<button style=width: 50%; id=" + "'Palace_of_Westminster'" + " onclick=setDestination(this.id);>도착</button>");
 
                         var circle3 = L.circle([51.5074, -0.1666], {
                             color: 'red',
@@ -373,7 +400,7 @@ main p {
                             fillOpacity: 0.5,
                             radius: 500
                         }).addTo(myLDN);
-                        circle3.bindPopup("<br> Here is the 'Hyde Park'<br><br><button style=width: 50% id=" + "'Hyde Park'" + " onclick=" + "setOrigin(this.id);" + ">출발</button>" + "&nbsp;&nbsp;&nbsp;" + "<button style=width: 50%; id=" + "'Hyde Park'" + " onclick=setDestination(this.id);>도착</button>");
+                        circle3.bindPopup("<br> Here is the 'Hyde Park'<br><br><button style=width: 50% id=" + "'Hyde Park'" + " onclick=" + "setOrigin(this.id);" + ">출발</button>" + "&nbsp;&nbsp;&nbsp;" + "<button style=width: 50%; id=" + "'Hyde_Park'" + " onclick=setDestination(this.id);>도착</button>");
 
                         var circle4 = L.circle([51.5014, -0.142], {
                             color: 'red',
@@ -381,7 +408,7 @@ main p {
                             fillOpacity: 0.5,
                             radius: 500
                         }).addTo(myLDN);
-                        circle4.bindPopup("<br> Here is the 'Buckingham Palace'<br><br><button style=width: 50% id=" + "'Buckingham Palace'" + " onclick=" + "setOrigin(this.id);" + ">출발</button>" + "&nbsp;&nbsp;&nbsp;" + "<button style=width: 50%; id=" + "'Buckingham Palace'" + " onclick=setDestination(this.id);>도착</button>");
+                        circle4.bindPopup("<br> Here is the 'Buckingham Palace'<br><br><button style=width: 50% id=" + "'Buckingham Palace'" + " onclick=" + "setOrigin(this.id);" + ">출발</button>" + "&nbsp;&nbsp;&nbsp;" + "<button style=width: 50%; id=" + "'Buckingham_Palace'" + " onclick=setDestination(this.id);>도착</button>");
 
                         var circle5 = L.circle([51.506, -0.0767], {
                             color: 'red',
@@ -389,7 +416,7 @@ main p {
                             fillOpacity: 0.5,
                             radius: 500
                         }).addTo(myLDN);
-                        circle5.bindPopup("<br> Here is the 'Tower Bridge'<br><br><button style=width: 50% id=" + "'Tower Bridge'" + " onclick=" + "setOrigin(this.id);" + ">출발</button>" + "&nbsp;&nbsp;&nbsp;" + "<button style=width: 50%; id=" + "'Tower Bridge'" + " onclick=setDestination(this.id);>도착</button>");
+                        circle5.bindPopup("<br> Here is the 'Tower Bridge'<br><br><button style=width: 50% id=" + "'Tower Bridge'" + " onclick=" + "setOrigin(this.id);" + ">출발</button>" + "&nbsp;&nbsp;&nbsp;" + "<button style=width: 50%; id=" + "'Tower_Bridge'" + " onclick=setDestination(this.id);>도착</button>");
 
                         var popup = L.popup();
 
