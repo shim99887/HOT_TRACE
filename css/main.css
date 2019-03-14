@@ -12,7 +12,7 @@ img{
     text-align: center;
 }
 #mapLondon {
-    height: 500px;
+    height: 0px;
 }
 #mapEdinburgh {
     height: 800px;
@@ -22,4 +22,22 @@ img{
 }
 #mapBerlin {
     height: 800px;
+}
+blockquote:before
+{
+    color:#33A8E5;
+    content:'“';
+    font-family: fantasy;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+blockquote p {
+    display: inline;
+}
+blockquote {
+    border-left: 10px solid #ccc;
+    margin: 10px;
+    padding: 10px;
 }
