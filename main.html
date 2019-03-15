@@ -242,7 +242,7 @@ main p {
                         <img src="image/board.png">
                     </td>
                     <td>
-                        <img style="float: right;" src="image/menu.png">
+                        <img style="float: right;" src="image/menu.png" onclick="openNav()">
                     </td>
                 </tr>
             </tbody>
@@ -251,6 +251,14 @@ main p {
 </header>
 
 <body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
+
     <input id="panel-1-ctrl" class="panel-radios" type="radio" name="tab-radios" checked>
     <input id="panel-2-ctrl" class="panel-radios" type="radio" name="tab-radios">
     <input id="panel-3-ctrl" class="panel-radios" type="radio" name="tab-radios">
@@ -260,7 +268,7 @@ main p {
     <input id="panel-7-ctrl" class="panel-radios" type="radio" name="tab-radios">
     <input id="panel-8-ctrl" class="panel-radios" type="radio" name="tab-radios">
     <!-- 이건 무엇? -->
-    
+
     <!-- TABS LIST -->
     <ul id="tabs-list">
         <!-- MENU TOGGLE -->
@@ -284,19 +292,20 @@ main p {
             <section id="panel-1">
                 <main>
                     <blockquote>
-                    <p> 런던 은 잉글랜드와 영국의 수도이자 최대 도시이다. 인구는 2014년 기준 8,538,689명으로 영국은 물론 유럽 전체 대도시권 중 가장 큰 권역이다. 런던은 템스 강을 기반으로 2,000년 동안 발전해 왔으며 역사는 로마인들이 론디니움이라는 요새를 지은 때부터 시작되었다. - 위키백과 </p>
-                    </blockquote>    
+                        <p> 런던 은 잉글랜드와 영국의 수도이자 최대 도시이다. 인구는 2014년 기준 8,538,689명으로 영국은 물론 유럽 전체 대도시권 중 가장 큰 권역이다. 런던은 템스 강을 기반으로 2,000년 동안 발전해 왔으며 역사는 로마인들이 론디니움이라는 요새를 지은 때부터 시작되었다. - 위키백과 </p>
+                    </blockquote>
                     <h3> The Amount of TOTAL TWEETS : 813,499 </h3>
-                    
-                    
+
+
                     <!-- <button id="map_hidden">> 핫 플레이스 알아보기 </button> -->
-                    
-                    <span id="map_hidden"; style="CURSOR: hand; color:#02B3B1">➤ 핫 플레이스 알아보기</span>
+
+                    <span id="map_hidden" ; style="CURSOR: hand; color:#02B3B1">➤ 핫 플레이스 알아보기</span>
 
                     <div id="mapLondon">
-                        
+
                     </div>
                     <script>
+
                         function checkEmpty(){
                             alert($("#start_input").val());
                             if($("#start_input").val() == ""){
@@ -318,6 +327,13 @@ main p {
                             }
                         }
                         
+                        function openNav() {
+                         document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
                         $("#submit").click(function(){
                             if(("$start").text() == "출발지: "){
                                 
@@ -429,8 +445,8 @@ main p {
                         <input type="text" id="start_input" name="start" style="display: none" value="">
                         <input type="text" id="destination_input" name="destination" style="display: none" value="">
                         <button type="submit" id="findRoute" style="display:none">길찾기</button>
-                        </form>
-                    
+                    </form>
+
                     <p> 주요 관광 지역 </p>
                     <a href="#mapLondon"><img src="image/london/round_BKH.png" style="width: 100px" title="버킹엄 궁전"></a>
                     <a href="#mapLondon"><img src="image/london/round_LDE.png" style="width: 100px" title="런던 아이"></a>
